@@ -6,7 +6,7 @@ const Footer = () => {
       <div className={styles.container}>
         {/* Logo */}
         <div className={styles.logoSection}>
-          <img src="/logo.png" alt="Cuddlemind logo" />
+          <img src="/1.png" alt="Cuddlemind logo" />
           <span>Cuddlemind</span>
         </div>
 

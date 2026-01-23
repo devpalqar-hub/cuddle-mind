@@ -1,0 +1,257 @@
+.main-layout {
+  padding-top: 40px;
+}
+
+.navbar-logo {
+  height: 80px;
+  transition: height 0.3s ease;
+}
+
+.splash-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  opacity: 1;
+  flex-direction: column;
+}
+
+.splash-screen.fade-out {
+  animation: fadeOut 0.8s ease forwards;
+}
+
+.splash-logo {
+  width: 120px;
+  max-width: 30vw;
+  height: auto;
+  position: absolute;
+  z-index: 10000;
+  transform-origin: center center;
+  will-change: transform;
+}
+/* NAVBAR CONTAINER */
+.custom-navbar {
+  position: sticky;
+  top: 60px;
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  border-radius: 1px soild #090909;
+}
+
+/* INNER PILL */
+.custom-navbar-inner {
+  width: 95%;
+  max-width: 1200px;
+  background: #fff;
+  border-radius: 60px;
+  padding: 1px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+  border: 1.5px solid #0f0e0e;
+}
+
+/* LOGO */
+.navbar-logo {
+  height: 60px;
+}
+
+/* CENTER MENU */
+.navbar-center {
+  display: flex;
+  gap: 28px;
+  align-items: center;
+}
+
+.nav-item {
+  text-decoration: none;
+  font-weight: 500;
+  color: #333;
+  transition: color 0.2s ease;
+}
+
+.nav-item:hover {
+  color: #1679E0;
+}
+
+/* DOWNLOAD BUTTON */
+.download-btn {
+  background: #009DD1;
+  color: white;
+  border: none;
+  padding: 16px 24px;
+  border-radius: 999px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.download-btn:hover {
+  background: #5696df;
+}
+
+/* MOBILE */
+.navbar-toggler {
+  background: none;
+  border: none;
+  font-size: 22px;
+  margin-left: 10px;
+  cursor: pointer;
+  display: none;
+}
+@keyframes jump {
+  0% {
+    transform: scale(1) translateY(0);
+  }
+
+  30% {
+    transform: scale(1.15) translateY(-50px);
+  }
+
+  60% {
+    transform: scale(1.05) translateY(0);
+  }
+
+  80% {
+    transform: scale(1.1) translateY(-20px);
+  }
+
+  100% {
+    transform: scale(1) translateY(0);
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+  }
+}
+
+.splash-logo.fly {
+  transition: transform 1.2s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  transform-origin: center;
+}
+
+.main-layout.invisible-behind {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.splash-message {
+  position: absolute;
+  top: calc(100% + 30px);
+  text-align: center;
+  color: #333;
+  font-size: 1.2rem;
+  font-weight: 500;
+  animation: fadeIn 1s ease-in;
+}
+
+.loading-dots {
+  display: inline-block;
+  margin-left: 8px;
+}
+
+.loading-dots span {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  margin: 0 2px;
+  background-color: #1679E0;
+  border-radius: 50%;
+  animation: bounceDot 1.2s infinite ease-in-out;
+}
+
+.loading-dots span:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.loading-dots span:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+@keyframes bounceDot {
+
+  0%,
+  80%,
+  100% {
+    transform: scale(1);
+  }
+
+  40% {
+    transform: scale(1.4);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 768px) {
+  .navbar-logo {
+    height: 60px;
+  }
+
+  .splash-logo {
+    width: 90px;
+    max-width: 40vw;
+  }
+
+  .mobile-btn {
+    padding: 4px 12px;
+    font-size: 0.8rem;
+  }
+
+  .navbar-toggler {
+    padding: 4px 8px;
+  }
+
+  .navbar-nav .nav-link {
+    padding: 0.5rem 1rem;
+  }
+  .navbar-center {
+    position: absolute;
+    top: 90px;
+    background: white;
+    width: 90%;
+    left: 50%;
+    transform: translateX(-50%);
+    flex-direction: column;
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    display: none;
+  }
+
+  .navbar-center.show {
+    display: flex;
+  }
+
+  .navbar-toggler {
+    display: block;
+  }
+
+  .download-btn {
+    display: none;
+  }
+}
