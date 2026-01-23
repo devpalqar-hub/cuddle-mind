@@ -1,0 +1,386 @@
+html,
+body {
+  overflow-x: hidden;
+}
+.phone-section {
+  display: flex;
+  justify-content: flex-start;
+  background: #fff;
+  padding: 145px 199px;
+  margin-top: -235px;
+}
+
+.phone-wrapper {
+  position: relative;
+  width: 420px;
+  height: 640px;
+}
+.phone-sketch-frame {
+  position: absolute;
+  top: -30px;
+  left: 30px;
+  width: 366px;
+  height: 688px;
+  border: 3px solid #000;
+  border-radius: 2px;
+  background: #fff;
+  z-index: 1;
+   box-shadow: 10px 10px 0 #e8e4e4;
+   transform: rotate(-1.4deg);
+}
+
+.phone-mockup {
+  position: relative;
+  z-index: 2;
+  transform: rotate(-4deg);
+}
+
+.phone-mockup img {
+  width: 100%;
+  display: block;
+}
+
+.badge-wrapper {
+  position: absolute;
+  z-index: 4;
+}
+
+.badge-pill {
+  background: #fff;
+  border: 3px solid #000;
+  border-radius: 18px;
+  padding: 10px 18px;
+  font-size: 14px;
+  font-weight: 600;
+  box-shadow: 2px 3px 0 #000;
+  white-space: nowrap;
+  position: relative;
+  z-index: 2;
+top: -2px
+}
+
+.badge-tape {
+  position: absolute;
+  width: 70px;
+  height: 70px;
+  
+  background: linear-gradient(
+  135deg,
+  #fff4d8,
+  #f7e6b8
+);
+  border: 2px solid #000;
+  transform: rotate(45deg);
+  z-index: 1;
+}
+
+.badge-wrapper.top {
+  top: -50px;
+  left: -40px;
+}
+
+.top-tape {
+  width: 115px;
+  height: 33px;
+  top: 8px;
+  left: 112%;
+  transform: translateX(-50%) rotate(-4deg);
+}
+
+.phone-label.support {
+  position: absolute;
+  top: 40px;
+  right: -80px;
+  padding: 10px 16px;
+  background: #fff;
+  border: 3px solid #000;
+  border-radius: 14px;
+  font-weight: 600;
+  box-shadow: 2px 3px 0 #000;
+  z-index: 3;
+}
+
+.phone-label.users {
+  position: absolute;
+  bottom: 180px;
+  left: -80px;
+  padding: 10px 16px;
+  background: #fff;
+  border: 3px solid #000;
+  border-radius: 14px;
+  font-weight: 600;
+  box-shadow: 2px 3px 0 #000;
+  z-index: 3;
+}
+
+
+.badge-wrapper.bottom {
+  bottom: -45px;
+  right: -70px;
+}
+
+.bottom-tape {
+   width: 80px;
+  height: 80px;  
+  bottom: 10px;
+  left: -10%;
+  transform: translateX(-50%) rotate(45deg);
+  z-index: 1
+  
+
+}
+/* right section */
+/* ================= CTA ================= */
+
+.cta-wrapper {
+  max-width: 455px;
+  display: flex;
+  flex-direction: column;
+  gap: 26px;
+  padding: 170px 23px;
+  margin-left: 224px;
+}
+
+.cta-box {
+  border: 4px solid #000;
+  border-radius: 18px;
+  padding: 32px 40px;
+  box-shadow: 6px 6px 0 #000;
+  transform: rotate(1deg);
+
+}
+
+.cta-box h2 {
+  font-size: 34px;
+  font-weight: 800;
+  margin-bottom: 2px;
+}
+
+.cta-box p {
+  font-size: 16px;
+  color: #666;
+}
+
+
+.cta-free {
+  font-size: 16px;
+  font-weight: 500;
+  color: #777;
+  margin-left: 113px;
+  margin-top: 50px; 
+}
+
+.cta-buttons {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  margin-top:20px;
+}
+
+
+.store-btn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  height: 44px;
+  padding: 0 18px;
+
+  border-radius: 14px;
+  border: none;
+
+  font-size: 14px;
+  font-weight: 500;
+
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+
+.store-btn img {
+  width: 20px;
+  height: 20px;
+}
+
+.apple {
+  background: #2b2b2b;
+  color: #fff;
+}
+
+
+.google {
+  background: #2b2b2b;
+  color: #fff;
+}
+
+
+.cta-desktop-view {
+  display: block; 
+}
+
+.cta-mobile-view {
+  display: none;
+}
+@media (max-width: 768px) {
+
+  .phone-section {
+    flex-direction: column;
+    align-items: center;
+    padding: 80px 16px;
+    margin-top: -60px;
+  }
+
+  .phone-wrapper {
+    width: 300px;
+    height: 520px;
+  }
+
+  .phone-sketch-frame {
+    width: 289px;
+    height: 560px;
+    left: 1px;
+    top: -20px;
+  }
+
+  .phone-mockup img {
+    width: 100%;
+  }
+
+
+  .badge-pill {
+    font-size: 12px;
+    padding: 8px 14px;
+    background-color: rgba(111, 207, 239, 1);
+  }
+
+  .phone-label.support {
+    top: 20px;
+    right: -60px;
+    font-size: 12px;
+    background-color: rgba(122, 195, 164, 1);
+  }
+
+  .phone-label.users {
+    bottom: 140px;
+    left: -60px;
+    font-size: 12px;
+  }
+
+  .badge-wrapper.top {
+    top: -40px;
+    left: -20px;
+  }
+
+  .badge-wrapper.bottom {
+    bottom: -35px;
+    right: -40px;
+  }
+
+  .cta-wrapper {
+    margin-left: 0;
+    padding: 80px 16px 0;
+    align-items: center;
+    text-align: center;
+    max-width: 100%;
+  }
+
+  .cta-box {
+    padding: 26px 24px;
+    transform: rotate(0deg);
+  }
+
+  .cta-box h2 {
+    font-size: 26px;
+  }
+
+  .cta-box p {
+    font-size: 14px;
+  }
+
+  .cta-free {
+    margin-left: 0;
+    font-size: 14px;
+  }
+
+  .cta-buttons {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .store-btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .cta-desktop-view {
+    display: none; 
+  }
+  .cta-mobile-view {
+    display: flex; 
+    width: 100%;
+    justify-content: center;
+  }
+
+  .cta-mobile-view .cta-box {
+    background-color: #000; 
+    color: #fff;
+    border: none;
+    border-radius: 30px;
+    padding: 40px 24px;
+    width: 100%;
+    max-width: 340px;
+    transform: rotate(0deg); 
+    box-shadow: 8px 8px 0px #e0e0e0; 
+    
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+  }
+
+  .cta-mobile-view .cta-box h2 {
+    color: #fff;
+    font-size: 32px;
+    font-weight: 800;
+    margin-bottom: 8px;
+    line-height: 1.1;
+  }
+
+  .cta-mobile-view .cta-box p {
+    color: #ccc; 
+    font-size: 16px;
+    margin-bottom: 30px;
+  }
+  .cta-mobile-view .cta-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    width: 100%;
+  }
+  .cta-mobile-view .store-btn {
+    background-color: #fff !important;
+    color: #000 !important;
+    border: none;
+    border-radius: 12px;
+    width: 180px; 
+    height: 52px;
+    padding: 0 15px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 10px;
+    font-size: 15px;
+    font-weight: 700;
+  }
+
+  .cta-mobile-view .store-btn img {
+    width: 24px;
+    height: 24px;
+  }
+
+  .badge-pill {
+    font-size: 12px;
+    padding: 8px 14px;
+    background-color: rgba(111, 207, 239, 1);
+  }
+}
