@@ -1,5 +1,6 @@
 import styles from "./Footer.module.css";
-
+import { NavHashLink } from 'react-router-hash-link';
+import { Link } from 'react-router-dom';
 const Footer = () => {
   return (
     <footer className={styles.footer}>
@@ -12,10 +13,12 @@ const Footer = () => {
 
         {/* Links */}
         <nav className={styles.links}>
-          <a href="/about">About</a>
-          <a href="/privacy">Privacy</a>
-          <a href="/terms">Terms</a>
-          <a href="/contact">Contact</a>
+          <NavHashLink smooth to="/#about-us">
+            About
+          </NavHashLink>
+          <Link to="/privacy">Privacy</Link>
+          <Link to="/terms">Terms</Link>
+          <Link to="/contact">Contact</Link>
         </nav>
               {/* Copyright */}
       <p className={styles.copyright}>

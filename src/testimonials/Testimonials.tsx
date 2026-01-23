@@ -17,7 +17,7 @@ const testimonials = [
 
 export default function Testimonials() {
   return (
-    <section className={styles.section}>
+    <section id="stories-section"className={styles.section}>
       <h2 className={styles.heading}>
         What our satisfied <br /> clients have to say
       </h2>

@@ -25,7 +25,7 @@ const professionals = [
 
 export default function Professionals() {
   return (
-    <section className={styles.section}>
+    <section id="professionals-section"className={styles.section}>
       <h2 className={styles.heading}>Meet our Professionals</h2>
 
       <div className={styles.grid}>
