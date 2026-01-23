@@ -53,7 +53,7 @@ export default function Navbar() {
         <>
             {showSplash && (
                 <div className="splash-screen">
-                    <img ref={splashLogoRef} src="logo.png" alt="Logo" className="splash-logo" />
+                    <img ref={splashLogoRef} src="1.png" alt="Logo" className="splash-logo" />
                     <div className="splash-message">
                         Loading
                         <span className="loading-dots">
