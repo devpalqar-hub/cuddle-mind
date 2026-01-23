@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { useState, useEffect, useRef } from "react";
+import { NavHashLink } from 'react-router-hash-link';
 import "./navbar.css"
 export default function Navbar() {
     const [showSplash, setShowSplash] = useState(true);
@@ -79,19 +80,37 @@ export default function Navbar() {
 
                             {/* CENTER: MENU */}
                             <div className={`navbar-center ${isNavbarOpen ? "show" : ""}`}>
-                            <Link to="/" className="nav-item" onClick={() => setIsNavbarOpen(false)}>
+                            {/* UPDATED: Home link to scroll to top */}
+                            <NavHashLink smooth to="/#top" className="nav-item" onClick={() => setIsNavbarOpen(false)}>
                                 Home
-                            </Link>
-                            <Link to="/about" className="nav-item" onClick={() => setIsNavbarOpen(false)}>
+                            </NavHashLink>
+
+                            {/* UPDATED: About link to scroll to the AboutUs section ID */}
+                            <NavHashLink 
+                                smooth 
+                                to="/#about-us" 
+                                className="nav-item" 
+                                onClick={() => setIsNavbarOpen(false)}
+                            >
                                 About
-                            </Link>
+                            </NavHashLink>
                             <Link  to="/contact" className="nav-item" onClick={() => setIsNavbarOpen(false)}>Contacts and FAQ</Link>
-                            <Link to="/team" className="nav-item" onClick={() => setIsNavbarOpen(false)}>
+                            <NavHashLink 
+                                smooth 
+                                to="/#professionals-section" 
+                                className="nav-item" 
+                                onClick={() => setIsNavbarOpen(false)}
+                            >
                                 Team
-                            </Link>
-                            <Link to="/stories" className="nav-item" onClick={() => setIsNavbarOpen(false)}>
+                            </NavHashLink>
+                            <NavHashLink 
+                                smooth 
+                                to="/#stories-section" 
+                                className="nav-item" 
+                                onClick={() => setIsNavbarOpen(false)}
+                            >
                                 Stories
-                            </Link>
+                            </NavHashLink>
                             </div>
 
                             {/* RIGHT: BUTTON */}

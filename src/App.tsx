@@ -1,14 +1,12 @@
 import { Routes, Route } from "react-router-dom";
 import Navbar from "./navbar/navbar";
 import Home from "./Home/Home";
-import Contact from "./contact/Contact";
 import AboutUs from "./aboutUs/AboutUs";
 import "./App.css";
 import Footer from "./footer/footer";
-import MentalHealthStats from "./mentalHealthStatus/MentalHealthStats";
-import Professionals from "./professionals/Professionals";
-import SpeakExperts from "./speakExperts/SpeakExperts";
-import Testimonials from "./testimonials/Testimonials";
+import Privacy from "./privacy/Privacy";
+import Terms from "./terms/Terms";
+import Contact from "./contact/Contact";
 
 export default function App() {
   return (
@@ -18,15 +16,12 @@ export default function App() {
              <Navbar />
               <Routes>
                 <Route path="/" element={<Home />} />
-                <Route path="/about" element={<h1>About</h1>} />
+                <Route path="/about" element={<AboutUs/>} />
                 <Route path="/contact" element={<Contact/>} />
                 <Route path="/team" element={<h1>Team</h1>} />
+                <Route path="/privacy" element={<Privacy />} />
+                <Route path="/terms" element={<Terms/>} />
               </Routes>
-            <AboutUs />
-            <MentalHealthStats />
-            <Professionals />
-            <Testimonials />
-            <SpeakExperts />
           </main>
 
           <Footer />

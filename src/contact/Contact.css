@@ -14,6 +14,7 @@
 }
 
 .contact-headings h3 {
+  font-family: var(--font-heading);
   color: #009DD1;
   font-size: clamp(2rem, 5vw, 3rem);
   font-weight: 700;
@@ -31,7 +32,7 @@
 /* ===== FORM CARD ===== */
 .contact-form {
   background: #ffffff;
-  max-width: 800px;
+  max-width: 1000px;
   margin: auto;
   padding: 2.5rem;
   border-radius: 16px;

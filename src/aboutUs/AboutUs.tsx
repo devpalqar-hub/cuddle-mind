@@ -22,7 +22,7 @@ export default function AboutUs() {
   }, []);
 
   return (
-    <section className={styles.section}>
+    <section id="about-us" className={styles.section}>
       <div className={styles.wrapper}>
         <div className={styles.shadow} />
 
