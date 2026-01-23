@@ -1,0 +1,94 @@
+.section {
+  padding: 100px 16px 140px;
+  display: flex;
+  justify-content: center;
+}
+
+/* Wrapper to manage rotation */
+.cardWrapper {
+  position: relative;
+}
+.cardWrapper:hover .card {
+  transform: rotate(0deg);
+}
+
+/* Black shadow layer */
+.shadow {
+  position: absolute;
+  inset: 0;
+  background: #000;
+  transform: translate(14px, 14px) rotate(1deg);
+  border-radius: 2px;
+  z-index: 0;
+}
+
+/* Main card */
+.card {
+  position: relative;
+  background: #fca623;
+  border: 3px solid #000;
+  width: 740px;
+  max-width: 100%;
+  padding: 64px 32px 56px;
+  text-align: center;
+  transform: rotate(1deg);
+  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+  z-index: 1;
+}
+.card,
+.shadow {
+  box-sizing: border-box;
+}
+
+/* Heading */
+.card h2 {
+  font-size: 44px;
+  font-weight: 800;
+  line-height: 1.2;
+  margin-bottom: 40px;
+}
+
+/* Button */
+.card button {
+  background: #000;
+  color: #fff;
+  border: none;
+  padding: 18px 44px;
+  font-size: 18px;
+  font-weight: 600;
+  border-radius: 999px;
+  cursor: pointer;
+}
+
+/* Decorative diamond */
+.diamond {
+  position: absolute;
+  top: -28px;
+  right: 80px;
+  width: 90px;
+  height: 90px;
+  background: rgba(0, 0, 0, 0.1);
+  transform: rotate(45deg);
+}
+
+/* ---------------- RESPONSIVE ---------------- */
+
+@media (max-width: 768px) {
+  .card h2 {
+    font-size: 32px;
+  }
+
+  .card {
+    padding: 48px 20px;
+    width: 100%;
+    border-radius: 14px;
+  }
+  .shadow {
+    border-radius: 14px;
+  }
+  .diamond {
+    width: 75px;
+    height: 75px;
+  }
+}
+
