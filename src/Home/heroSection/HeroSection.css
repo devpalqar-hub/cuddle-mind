@@ -308,8 +308,8 @@ body, html {
     align-items: center;
     padding: 20px 16px;
     gap: 0;
-    overflow: visible;
-    overflow-x: hidden; /* Stops the horizontal wiggle */
+    /* overflow: visible; */
+    /* overflow-x: hidden; */
   }
 
   .hero-left {

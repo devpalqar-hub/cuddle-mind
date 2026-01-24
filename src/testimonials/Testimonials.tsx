@@ -10,7 +10,7 @@ const testimonials = [
     name: "THOMAS M.",
   },
   {
-    text: "The app is so easy to use and the sessions are seamless.",
+    text: "The app is so easy to use and the sessions have a seamless flow.",
     name: "SARAH J.",
   },
 ];

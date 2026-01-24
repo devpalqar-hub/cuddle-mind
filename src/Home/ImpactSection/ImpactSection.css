@@ -82,6 +82,95 @@
   font-size: 14px;
   color: #444;
 }
+@keyframes impactReveal {
+  from {
+    opacity: 0;
+    transform: translateY(60px) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.impact-section {
+  animation: impactReveal 1s ease-out forwards;
+}
+.impact-section::before,
+.impact-section::after {
+  animation: waveMove 6s ease-in-out infinite alternate;
+}
+
+@keyframes waveMove {
+  0% {
+    transform: skewY(-4.5deg) translateX(0);
+  }
+  100% {
+    transform: skewY(-4.5deg) translateX(-40px);
+  }
+}
+@keyframes cardPop {
+  from {
+    opacity: 0;
+    transform: translateY(40px) scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.impact-card {
+  animation: cardPop 0.8s ease-out forwards;
+  animation-delay: calc(var(--i) * 0.15s);
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+/* Stagger order */
+.impact-card:nth-child(1) { --i: 1; }
+.impact-card:nth-child(2) { --i: 2; }
+.impact-card:nth-child(3) { --i: 3; }
+.impact-card:hover {
+  transform: translateY(-12px) rotate(-1deg) scale(1.06);
+  box-shadow: 10px 10px 0 #000;
+}
+@keyframes numberBounce {
+  0% {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  60% {
+    transform: scale(1.15);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.impact-card strong {
+  animation: numberBounce 0.6s ease-out forwards;
+  animation-delay: 0.4s;
+}
+@keyframes glowPulse {
+  0%, 100% {
+    box-shadow: 4px 4px 0 #000;
+  }
+  50% {
+    box-shadow: 4px 4px 0 #000, 0 0 18px rgba(255, 255, 255, 0.4);
+  }
+}
+
+.impact-card {
+  animation: glowPulse 3s ease-in-out infinite;
+}
+.impact-card strong {
+  transition: transform 0.2s ease;
+}
+
+.impact-card strong.updating {
+  transform: scale(1.1);
+}
 
 /* ================= MOBILE RESPONSIVE ================= */
 @media (max-width: 768px) {

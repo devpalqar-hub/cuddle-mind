@@ -1,8 +1,15 @@
 import { motion } from "framer-motion";
+import { useEffect, useState } from "react";
 import "./HeroSection.css";
 
 export default function HeroSection() {
   // Animation Variant for text and general fade-ups
+  const [svgKey, setSvgKey] = useState(0);
+
+  useEffect(() => {
+    setSvgKey(Date.now()); // new key on every reload
+  }, []);
+
   const fadeUp = {
     initial: { opacity: 0, y: 30 },
     animate: { opacity: 1, y: 0 },
@@ -46,7 +53,7 @@ export default function HeroSection() {
               Health
               {/* HAND-DRAWN WAVE UNDER TEXT */}
               <span className="hero-wave-line">
-                <svg viewBox="0 0 200 20" preserveAspectRatio="none" className="wave-svg">
+                <svg  viewBox="0 0 200 20" preserveAspectRatio="none" className="wave-svg">
                   <motion.path
                     d="M2 10 Q 50 2, 100 10 T 198 10"
                     fill="none"
@@ -74,7 +81,7 @@ export default function HeroSection() {
 
       <div className="hero-right">
         <div className="image-stack">
-          <svg className="hero-doodle" viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg">
+          <svg key={svgKey} className="hero-doodle" viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg">
             {/* 1. MAIN CIRCLE */}
             <motion.path
               d="M180 120 C90 160, 70 280, 120 380 C170 480, 320 520, 440 440 C540 360, 520 220, 420 140 C340 80, 240 80, 180 120"
@@ -173,6 +180,7 @@ export default function HeroSection() {
           </div>
 
           <svg 
+            key={`trusted-${svgKey}`}
             className="trusted-arrow" 
             viewBox="0 0 200 200" 
             style={{ overflow: "visible", border: "1px dashed transparent" }} // Transparent border for debugging
