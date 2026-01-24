@@ -3,6 +3,7 @@
   padding: 120px 20px;
   display: flex;
   justify-content: center;
+  scroll-margin-top: 80px;
 }
 
 /* wrapper controls rotation */

@@ -1,190 +1,260 @@
 import { motion } from "framer-motion";
+import { useEffect, useState } from "react";
 import "./HeroSection.css";
 
 export default function HeroSection() {
+  // Animation Variant for text and general fade-ups
+  const [svgKey, setSvgKey] = useState(0);
+
+  useEffect(() => {
+    setSvgKey(Date.now()); // new key on every reload
+  }, []);
+
+  const fadeUp = {
+    initial: { opacity: 0, y: 30 },
+    animate: { opacity: 1, y: 0 },
+  };
+
+  // Animation Variant for drawing SVG paths
+  const drawPath = {
+    initial: { pathLength: 0, opacity: 0 },
+    animate: { pathLength: 1, opacity: 1 },
+  };
+
+  // Animation for yellow accents (pop-in effect)
+  const popIn = {
+    initial: { scale: 0, opacity: 0 },
+    animate: { scale: 1, opacity: 1 },
+  };
+
   return (
-    <>
     <section className="hero-section">
       <div className="hero-left">
-        <div className="hero-card">
-          <span className="hero-badge">#1 Mental Health Platform</span>
+        <motion.div 
+          className="hero-card"
+          initial="initial"
+          animate="animate"
+          transition={{ staggerChildren: 0.2 }} // Controls the delay between text lines
+        >
+          <motion.span variants={fadeUp} className="hero-badge">
+            #1 Mental Health Platform
+          </motion.span>
 
           <h1 className="hero-title">
-            Your Mental <br />
-            <span className="hero-highlight">Health</span>
-
-            {/* HAND-DRAWN WAVE */}
-            <span className="hero-wave-line">
-              <svg
-                viewBox="0 0 200 20"
-                preserveAspectRatio="none"
-                className="wave-svg"
-              >
-              <motion.path
-                  d="M2 10 Q 50 2, 100 10 T 198 10"
-                  fill="none"
-                  stroke="black"
-                  strokeWidth="4"
-                  strokeLinecap="round"
-                  pathLength={1}
-                  initial={{ strokeDasharray: 1, strokeDashoffset: 1 }}
-                  animate={{ strokeDashoffset: 0 }}
-                  transition={{ duration: 1.6, ease: "easeInOut", delay: 0.4 }}
-                />
-              </svg>
-            </span>
-
-            Journey <br />
-            Starts Here
+            <motion.span variants={fadeUp} style={{ display: "inline-block" }}>
+              Your Mental
+            </motion.span> 
+            <br />
+            <motion.span 
+              variants={fadeUp} 
+              className="hero-highlight" 
+              style={{ display: "inline-block", position: "relative" }}
+            >
+              Health
+              {/* HAND-DRAWN WAVE UNDER TEXT */}
+              <span className="hero-wave-line">
+                <svg  viewBox="0 0 200 20" preserveAspectRatio="none" className="wave-svg">
+                  <motion.path
+                    d="M2 10 Q 50 2, 100 10 T 198 10"
+                    fill="none"
+                    stroke="black"
+                    strokeWidth="4"
+                    strokeLinecap="round"
+                    variants={drawPath}
+                    transition={{ duration: 1, delay: 0.8 }}
+                  />
+                </svg>
+              </span>
+            </motion.span>
+            <br />
+            <motion.span variants={fadeUp} style={{ display: "inline-block" }}>
+              Journey <br /> Starts Here
+            </motion.span>
           </h1>
 
-          <p className="hero-description">
+          <motion.p variants={fadeUp} className="hero-description">
             Connect with top psychologists and mental health professionals
             through our secure, easy-to-use platform.
-          </p>
+          </motion.p>
+        </motion.div>
+      </div>
+
+      <div className="hero-right">
+        <div className="image-stack">
+          <svg key={svgKey} className="hero-doodle" viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg">
+            {/* 1. MAIN CIRCLE */}
+            <motion.path
+              d="M180 120 C90 160, 70 280, 120 380 C170 480, 320 520, 440 440 C540 360, 520 220, 420 140 C340 80, 240 80, 180 120"
+              fill="none"
+              stroke="#000"
+              strokeWidth="14"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              variants={drawPath}
+              initial="initial"
+              animate="animate"
+              transition={{ duration: 1.2, ease: "easeInOut" }}
+            />
+
+            {/* 2. ARROW BODY */}
+            <motion.path
+              d="M-450 285 C-60 220, 20 200, 80 200"
+              fill="none"
+              stroke="#000"
+              strokeWidth="12"
+              strokeLinecap="round"
+              variants={drawPath}
+              initial="initial"
+              animate="animate"
+              transition={{ duration: 0.8, delay: 1.0 }}
+            />
+
+            {/* 3. ARROW HEAD */}
+            <motion.path
+              d="M65 185 L95 200 L65 215"
+              fill="none"
+              stroke="#000"
+              strokeWidth="12"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              variants={drawPath}
+              initial="initial"
+              animate="animate"
+              transition={{ duration: 0.4, delay: 1.8 }}
+            />
+
+            {/* 4. YELLOW ACCENT STROKES */}
+            <motion.path
+              d="M45 155 L55 135"
+              stroke="#F4A623"
+              strokeWidth="5"
+              strokeLinecap="round"
+              variants={popIn}
+              initial="initial"
+              animate="animate"
+              transition={{ type: "spring", stiffness: 300, delay: 2.2 }}
+            />
+            <motion.path
+              d="M65 160 L80 140"
+              stroke="#F4A623"
+              strokeWidth="5"
+              strokeLinecap="round"
+              variants={popIn}
+              initial="initial"
+              animate="animate"
+              transition={{ type: "spring", stiffness: 300, delay: 2.3 }}
+            />
+          </svg>
+
+          <div className="image-back"></div>
+
+          {/* FLOATING IMAGE */}
+          <motion.div 
+            className="image-front"
+            animate={{ y: [0, -15, 0] }}
+            transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+          >
+            <img src="/hero1.jpg" alt="Happy person" className="hero-image" />
+          </motion.div>
         </div>
       </div>
-   {/* RIGHT SIDE – IMAGE (STACKED CARD LOOK) */}
-<div className="hero-right">
-  <div className="image-stack">
 
- 
- <svg
-  className="hero-doodle"
-  viewBox="0 0 600 600"
-  xmlns="http://www.w3.org/2000/svg"
->
-  {/* HAND-DRAWN CIRCLE */}
-  <path
-    d="
-      M180 120
-      C90 160, 70 280, 120 380
-      C170 480, 320 520, 440 440
-      C540 360, 520 220, 420 140
-      C340 80, 240 80, 180 120
-    "
-    fill="none"
-    stroke="#000"
-    strokeWidth="14"
-    strokeLinecap="round"
-    strokeLinejoin="round"
-  />
+      <div className="divider-wrapper">
+        <motion.div 
+          className="trusted-wrapper"
+          initial={{ opacity: 0, scale: 0.8 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 2.0 }}
+        >
+          <div className="trusted-badge">
+            <div className="avatar-group">
+              <img src="/avatar1.jpg" alt="user" />
+              <img src="/avatar2.jpg" alt="user" />
+              <img src="/avatar3.jpg" alt="user" />
+            </div>
+            <div className="trusted-text">
+              <strong>1000+</strong>
+              <span>Trusted Individuals</span>
+            </div>
+          </div>
 
-  {/* ARROW BODY — STRICTLY OUTSIDE */}
-  <path
-    d="
-      M-450 285
-      C-60 220, 20 200, 80 200
-    "
-    fill="none"
-    stroke="#000"
-    strokeWidth="12"
-    strokeLinecap="round"
-  />
+          <svg 
+            key={`trusted-${svgKey}`}
+            className="trusted-arrow" 
+            viewBox="0 0 200 200" 
+            style={{ overflow: "visible", border: "1px dashed transparent" }} // Transparent border for debugging
+          >
+            {/* MAIN ARROW LINE */}
+            <motion.path
+              d="M30 20 C30 100, 110 110, 120 150"
+              fill="none"
+              stroke="#000"
+              strokeWidth="6"
+              strokeLinecap="round"
+              initial={{ pathLength: 0 }}
+              animate={{ pathLength: 1 }}
+              transition={{ duration: 0.8, delay: 1.5 }}
+            />
 
-  {/* ARROW HEAD — STILL OUTSIDE */}
-  <path
-    d="
-      M65 185
-      L95 200
-      L65 215
-    "
-    fill="none"
-    stroke="#000"
-    strokeWidth="12"
-    strokeLinecap="round"
-    strokeLinejoin="round"
-  />
+            {/* ARROW HEAD */}
+            <motion.path
+              d="M105 140 L120 155 L135 140"
+              fill="none"
+              stroke="#000"
+              strokeWidth="6"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 2.2 }}
+            />
 
-  {/* YELLOW ACCENT STROKES — OUTSIDE */}
-  <path
-    d="M45 155 L55 135"
-    stroke="#F4A623"
-    strokeWidth="5"
-    strokeLinecap="round"
-  />
-  <path
-    d="M65 160 L80 140"
-    stroke="#F4A623"
-    strokeWidth="5"
-    strokeLinecap="round"
-  />
-</svg>
+            {/* THE SMALL YELLOW LINES (Sparks) - PRECISELY POSITIONED */}
+            {/* First Line (Top Spark) */}
+            <motion.line
+              x1="135" y1="165" 
+              x2="148" y2="170"
+              stroke="#F4A623" 
+              strokeWidth="5"
+              strokeLinecap="round"
+              initial={{ pathLength: 0, opacity: 0 }}
+              whileInView={{ pathLength: 1, opacity: 1 }}
+              transition={{ delay: 3.4, duration: 0.3 }}
+            />
+            
+            {/* Second Line (Bottom Spark) */}
+            <motion.line
+              x1="125" y1="172" 
+              x2="125" y2="185"
+              stroke="#F4A623" 
+              strokeWidth="5"
+              strokeLinecap="round"
+              initial={{ pathLength: 0, opacity: 0 }}
+              whileInView={{ pathLength: 1, opacity: 1 }}
+              transition={{ delay: 3.5, duration: 0.3 }}
+            />
+          </svg>
+        </motion.div>
 
-
-    <div className="image-back"></div>
-
-    <div className="image-front">
-      <img
-        src="/hero1.jpg"
-        alt="Happy person"
-        className="hero-image"
-      />
-    </div>
-
-  </div>
-</div>
-<div className="divider-wrapper">
-
-  {/* TRUSTED BADGE + ARROW */}
-  <div className="trusted-wrapper">
-    <div className="trusted-badge">
-      <div className="avatar-group">
-        <img src="/avatar1.jpg" />
-        <img src="/avatar2.jpg" />
-        <img src="/avatar3.jpg" />
+        {/* SECTION DIVIDER */}
+        <div className="section-divider">
+          <svg viewBox="0 0 1440 80" preserveAspectRatio="none">
+            <motion.path
+              d="M0 40 C120 20, 240 60, 360 40 C480 20, 600 60, 720 40 C840 20, 960 60, 1080 40 C1200 20, 1320 60, 1440 40"
+              fill="none"
+              stroke="#000"
+              strokeWidth="2.6"
+              strokeLinecap="round"
+              variants={drawPath}
+              initial="initial"
+              whileInView="animate"
+              viewport={{ once: true }}
+              transition={{ duration: 2 }}
+            />
+          </svg>
+        </div>
       </div>
-
-      <div className="trusted-text">
-        <strong>1000+</strong>
-        <span>Trusted Individuals</span>
-      </div>
-    </div>
-
-    <svg
-      className="trusted-arrow"
-      viewBox="0 0 200 200"
-    >
-      <path
-        d="M30 20 C30 100, 110 110, 120 150"
-        fill="none"
-        stroke="#000"
-        strokeWidth="6"
-        strokeLinecap="round"
-      />
-      <path
-        d="M105 145 L120 160 L135 145"
-        fill="none"
-        stroke="#000"
-        strokeWidth="6"
-        strokeLinecap="round"
-      />
-      <path d="M118 165 L112 175" stroke="#F4A623" strokeWidth="4" />
-      <path d="M130 165 L136 175" stroke="#F4A623" strokeWidth="4" />
-    </svg>
-  </div>
-
-  {/* WAVY DIVIDER */}
-  <div className="section-divider">
-    <svg viewBox="0 0 1440 80" preserveAspectRatio="none">
-      <path
-        d="
-          M0 40
-          C120 20, 240 60, 360 40
-          C480 20, 600 60, 720 40
-          C840 20, 960 60, 1080 40
-          C1200 20, 1320 60, 1440 40
-        "
-        fill="none"
-        stroke="#000"
-        strokeWidth="2.6"
-        strokeLinecap="round"
-      />
-    </svg>
-  </div>
-</div>
-
     </section>
-    </>
   );
 }

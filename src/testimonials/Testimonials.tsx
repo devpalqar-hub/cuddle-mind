@@ -10,14 +10,14 @@ const testimonials = [
     name: "THOMAS M.",
   },
   {
-    text: "The app is so easy to use and the sessions are seamless.",
+    text: "The app is so easy to use and the sessions have a seamless flow.",
     name: "SARAH J.",
   },
 ];
 
 export default function Testimonials() {
   return (
-    <section className={styles.section}>
+    <section id="stories-section"className={styles.section}>
       <h2 className={styles.heading}>
         What our satisfied <br /> clients have to say
       </h2>
