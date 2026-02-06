@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import "./HeroSection.css";
 
+
 export default function HeroSection() {
   // Animation Variant for text and general fade-ups
   const [svgKey, setSvgKey] = useState(0);
