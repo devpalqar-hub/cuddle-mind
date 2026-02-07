@@ -21,7 +21,7 @@ export default function Navbar() {
                             <img
                                 ref={logoRef}
                                 src="1.png"
-                                alt="jfjhf"
+                                alt="Cuddlemind Logo"
                                 className="navbar-logo"
                             />
                             </div>
@@ -32,6 +32,7 @@ export default function Navbar() {
                             <NavHashLink smooth to="/#top" className="nav-item" onClick={() => setIsNavbarOpen(false)}>
                                 Home
                             </NavHashLink>
+
 
                             {/* UPDATED: About link to scroll to the AboutUs section ID */}
                             <NavHashLink 

@@ -1,11 +1,16 @@
 .main-layout {
-  padding-top: 40px;
+  padding-top: 110px;
 }
 
 .navbar-logo {
-  height: 80px;
-  transition: height 0.3s ease;
+  height: 60px;
+  transition: transform .25s ease;
 }
+
+.navbar-logo:hover {
+  transform: scale(1.06) rotate(-2deg);
+}
+
 
 .splash-screen {
   position: fixed;
@@ -37,27 +42,50 @@
 }
 /* NAVBAR CONTAINER */
 .custom-navbar {
-  position: sticky;
-  top: 60px;
-  z-index: 1000;
+  position: fixed;
+  top: 18px;
+  left: 0;
+  width: 100%;
+  z-index: 9999;
+
   display: flex;
   justify-content: center;
-  border-radius: 1px soild #090909;
+  pointer-events: none; /* allows shadow area click-through */
 }
 
 /* INNER PILL */
 .custom-navbar-inner {
   width: 95%;
   max-width: 1200px;
-  background: #fff;
+  pointer-events: auto;
+  /* glass */
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+
   border-radius: 60px;
-  padding: 1px 24px;
+  padding: 6px 24px;
+
   display: flex;
   align-items: center;
   justify-content: space-between;
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
-  border: 1.5px solid #0f0e0e;
+
+  /* softer shadow */
+  box-shadow:
+    0 8px 25px rgba(0, 0, 0, 0.06),
+    0 2px 8px rgba(0, 0, 0, 0.04);
+
+  border: 1px solid rgba(0,0,0,0.06);
+
+  transition: all .25s ease;
 }
+.custom-navbar-inner:hover {
+  transform: translateY(-2px);
+  box-shadow:
+    0 14px 40px rgba(0, 0, 0, 0.08),
+    0 4px 12px rgba(0, 0, 0, 0.06);
+}
+
 
 /* LOGO */
 .navbar-logo {
@@ -70,33 +98,62 @@
   gap: 28px;
   align-items: center;
 }
-
 .nav-item {
+  position: relative;
   text-decoration: none;
   font-weight: 500;
-  color: #333;
-  transition: color 0.2s ease;
+  color: #2f2f2f;
+  padding: 6px 2px;
+  transition: color .2s ease;
+}
+
+/* animated underline */
+.nav-item::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -4px;
+  width: 0%;
+  height: 2px;
+  background: #1679E0;
+  border-radius: 2px;
+  transition: all .25s ease;
+  transform: translateX(-50%);
 }
 
 .nav-item:hover {
   color: #1679E0;
 }
 
+.nav-item:hover::after {
+  width: 100%;
+}
+
+
 /* DOWNLOAD BUTTON */
 .download-btn {
-  background: #009DD1;
+  background: linear-gradient(135deg, #009DD1, #1679E0);
   color: white;
   border: none;
-  padding: 16px 24px;
+  padding: 14px 24px;
   border-radius: 999px;
-  font-weight: 500;
+  font-weight: 600;
+  letter-spacing: 0.3px;
   cursor: pointer;
-  transition: background 0.2s ease;
+  transition: all .25s ease;
+
+  box-shadow: 0 6px 18px rgba(22,121,224,0.25);
 }
 
 .download-btn:hover {
-  background: #5696df;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 28px rgba(22,121,224,0.35);
 }
+
+.download-btn:active {
+  transform: translateY(0px) scale(0.98);
+}
+
 
 /* MOBILE */
 .navbar-toggler {

@@ -160,12 +160,17 @@ body, html {
 /* ===== WAVY DIVIDER ===== */
 .section-divider {
   position: relative;
-  z-index: 1;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  width: 100vw;
 }
 
+
 .section-divider svg {
-  width: 116%;
-  height: 70px;
+  width: 100%;
+  height: 120px;
   display: block;
 }
 

@@ -9,7 +9,6 @@ body {
   padding: 145px 199px;
   margin-top: -235px;
 }
-
 .phone-wrapper {
   position: relative;
   width: 420px;
@@ -122,8 +121,9 @@ top: -2px
   left: -10%;
   transform: translateX(-50%) rotate(45deg);
   z-index: 1
-  
-
+}
+.image {
+  z-index: 2;
 }
 /* right section */
 /* ================= CTA ================= */
