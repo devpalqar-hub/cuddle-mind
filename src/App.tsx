@@ -7,6 +7,8 @@ import Footer from "./footer/footer";
 import Privacy from "./privacy/Privacy";
 import Terms from "./terms/Terms";
 import Contact from "./contact/Contact";
+import Professionals from "./professionals/Professionals";
+import Testimonials from "./testimonials/Testimonials";
 
 export default function App() {
   return (
@@ -15,10 +17,11 @@ export default function App() {
           <main className="content">
              <Navbar />
               <Routes>
-                <Route path="/" element={<Home />} />
+                <Route path="/" element={<Home/>} />
                 <Route path="/about" element={<AboutUs/>} />
                 <Route path="/contact" element={<Contact/>} />
-                <Route path="/team" element={<h1>Team</h1>} />
+                <Route path="/team" element={<Professionals/>} />
+                <Route path="/stories" element={<Testimonials/>} />
                 <Route path="/privacy" element={<Privacy />} />
                 <Route path="/terms" element={<Terms/>} />
               </Routes>

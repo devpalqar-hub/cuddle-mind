@@ -63,11 +63,16 @@ body, html {
 .hero-wave-line {
   display: block;
   width: 160px;          /* wave length */
-  margin: -14px 0 6px;   /* spacing between Health & Journey */
+   bottom: -27px;   /* spacing between Health & Journey */
   transform: rotate(-1deg);
   left: 0;
   z-index: -1;
   position: absolute; 
+}
+/* Move Journey line slightly down on desktop */
+.hero-title > span:last-child {
+  position: relative;
+  top: 6px;   /* adjust 4px–10px as needed */
 }
 
 .wave-svg {
@@ -155,12 +160,17 @@ body, html {
 /* ===== WAVY DIVIDER ===== */
 .section-divider {
   position: relative;
-  z-index: 1;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  width: 100vw;
 }
 
+
 .section-divider svg {
-  width: 116%;
-  height: 70px;
+  width: 100%;
+  height: 120px;
   display: block;
 }
 
@@ -295,21 +305,123 @@ body, html {
   bottom: 40px;
   right: -30px;
 }
+@media (max-width: 1024px) {
+
+  .hero-section {
+    grid-template-columns: 1fr 1fr;
+    gap: 130px;
+    padding: 80px 20px;
+  }
+
+  .hero-card {
+    max-width: 480px;
+    padding: 36px 28px;
+  }
+
+  .hero-title {
+    font-size: 46px;
+  }
+
+  .image-stack {
+    width: 360px;
+  }
+
+  .hero-doodle {
+    width: 520px;
+    height: 460px;
+    left: -120px;
+  }
+
+  .trusted-wrapper {
+    left: 28%;
+  }
+   
+  /* ✅ Responsive Divider Wrapper for 1024px */
+  .divider-wrapper {
+    position: relative;
+    width: 100vw;
+    margin-left: calc(-50vw + 65%);
+    margin-top: -60px;   /* slightly reduced for tablet */
+    margin-bottom: 100px;
+  }
+}
+/* ============================= */
+/* TABLET RANGE (769px–1023px) */
+/* ============================= */
+
+@media (min-width: 769px) and (max-width: 1023px) {
+
+  .hero-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 70px 40px;
+    gap: 70px;
+  }
+
+  .hero-left {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .hero-card {
+    width: 100%;
+    max-width: 560px;
+    padding: 50px 40px 220px 40px;
+    height: auto;
+    transform: rotate(-1deg);
+  }
+
+  .hero-title {
+    font-size: 48px;
+  }
+
+  .hero-description {
+    font-size: 17px;
+  }
+
+  .hero-right {
+    position: relative;
+    margin-top: -200px;
+    transform: scale(0.85);
+    display: flex;
+    justify-content: center;
+  }
+
+  .image-stack {
+    width: 390px;
+  }
+
+  .hero-doodle {
+    width: 500px;
+    height: 500px;
+    left: -110px;
+    top: -60px;
+  }
+
+  .trusted-wrapper {
+    left: 50%;
+    transform: translateX(-50%) rotate(5deg) scale(0.9);
+  }
+
+  .divider-wrapper {
+    margin-top: -65px;
+    margin-bottom: 100px;
+  }
+
+}
 
 @media (max-width: 768px) {
-  body {
-    overflow-x: hidden;
-    position: relative;
-    width: 100%;
-  }
+ 
   .hero-section {
     display: flex;
     flex-direction: column;
     align-items: center;
     padding: 20px 16px;
     gap: 0;
-    /* overflow: visible; */
-    /* overflow-x: hidden; */
+    position: relative;
+    
   }
 
   .hero-left {
@@ -325,6 +437,7 @@ body, html {
    
     transform: rotate(-1deg); 
     width: 100%;
+    max-width: 560px;
     height: auto;
     padding: 40px 24px 180px 24px; 
     box-shadow: 8px 8px 0px #000;
@@ -334,6 +447,10 @@ body, html {
     margin: 0 auto;
     position: relative;
   }
+  .hero-highlight {
+  position: relative;
+  top: -6px;   /* move up */
+}
 
   .hero-title {
     font-size: 42px; 
@@ -348,8 +465,8 @@ body, html {
 
   .hero-right {
     position: absolute;
-    bottom: -30px; 
-    right: 70px;
+    bottom: 180px; 
+    right: 240px;
     transform: scale(0.55); 
     transform-origin: bottom right; 
     margin: 0;
@@ -434,4 +551,128 @@ body, html {
     transform: rotate(5deg);
     pointer-events: none;
   }
+}
+@media (max-width: 520px) {
+  /* IMAGE AREA */
+
+  .hero-right {
+    position: absolute;
+    bottom: 160px;
+    right: 80px;
+    transform: scale(0.6);
+    transform-origin: bottom right;
+  }
+
+  .image-stack {
+    width: 220px;
+  }
+
+  .hero-doodle {
+    width: 380px;
+    height: 380px;
+    left: -100px;
+    top: -70px;
+  }
+}
+
+@media (max-width: 460px) {
+
+  .hero-card {
+    padding: 32px 20px 160px 20px;
+  }
+
+  .hero-title {
+    font-size: 34px;
+    line-height: 1.09;
+  }
+ .hero-highlight {
+  position: relative;
+  top: -6px;   /* move up */
+}
+
+  .hero-description {
+    font-size: 14px;
+  }
+
+  .hero-right {
+    bottom: 200px;
+    right: 45px;
+    transform: scale(0.48);
+  }
+
+  .image-stack {
+    width: 250px;
+  }
+
+  .hero-wave-line {
+    width: 110px;
+    margin-top:-15px;
+  }
+
+  .trusted-wrapper {
+    transform: rotate(4deg) scale(0.75);
+    top: 30px;
+  }
+
+}
+/* ============================= */
+/* 320px – Smallest Phones */
+/* ============================= */
+
+@media (max-width: 320px) {
+
+  .hero-section {
+    padding: 16px 12px;
+  }
+
+  .hero-card {
+    padding: 28px 12px 120px 16px;
+  }
+
+  .hero-title {
+    font-size: 28px;
+    line-height: 1.08;
+  }
+
+  .hero-description {
+    font-size: 13px;
+    line-height: 1.5;
+    margin-top: 10px;
+  }
+
+  /* Adjust floating image */
+  .hero-right {
+    bottom: 70px;
+    right: 50px;
+    transform: scale(0.42);
+  }
+
+  .image-stack {
+    width: 210px;
+  }
+
+  .hero-wave-line {
+    width: 75px;
+  }
+ .hero-wave-line {
+    width: 80px;        
+    bottom: -17px;      /* reduce gap */
+    left: 0;
+  }
+
+  .wave-svg {
+    height: 18px;       /* smaller height */
+  }
+
+  .divider-wrapper {
+    margin-top: -40px;
+    margin-bottom: 70px;
+  }
+
+  /* Trusted badge */
+  .trusted-wrapper {
+    transform: rotate(4deg) scale(0.7);
+    top: 50px;
+  }
+
 }

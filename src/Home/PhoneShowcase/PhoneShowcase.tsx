@@ -15,7 +15,7 @@ export default function PhoneShowcase() {
             transition={{ duration: 0.8, ease: "easeOut" }}
             viewport={{ once: true }}
           >
-            <img src="/phoneimg.png" alt="App Preview" />
+            <img src="/phoneimg.png" alt="App Preview" className="image"/>
           </motion.div>
         </div>
 

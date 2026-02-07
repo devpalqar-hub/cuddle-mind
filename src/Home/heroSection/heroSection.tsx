@@ -1,14 +1,32 @@
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 import { useEffect, useState } from "react";
 import "./HeroSection.css";
+import { useRef } from "react";
+
 
 export default function HeroSection() {
+  const dividerRef = useRef<HTMLDivElement | null>(null);
   // Animation Variant for text and general fade-ups
   const [svgKey, setSvgKey] = useState(0);
 
   useEffect(() => {
     setSvgKey(Date.now()); // new key on every reload
   }, []);
+
+  // Scroll-based animation for divider
+  const { scrollYProgress } = useScroll({
+  target: dividerRef,
+  offset: ["start end", "end start"]
+});
+
+  const [screenW, setScreenW] = useState(window.innerWidth);
+const dividerX = useTransform(
+  scrollYProgress,
+  [0, 2],
+  [screenW * 0.25, -screenW * 0.25]
+);
+
+
 
   const fadeUp = {
     initial: { opacity: 0, y: 30 },
@@ -27,14 +45,20 @@ export default function HeroSection() {
     animate: { scale: 1, opacity: 1 },
   };
 
+    useEffect(() => {
+      const resize = () => setScreenW(window.innerWidth);
+      window.addEventListener("resize", resize);
+      return () => window.removeEventListener("resize", resize);
+    }, []);
+
   return (
-    <section className="hero-section">
+    <section className="hero-section" id="top">
       <div className="hero-left">
         <motion.div 
           className="hero-card"
           initial="initial"
           animate="animate"
-          transition={{ staggerChildren: 0.2 }} // Controls the delay between text lines
+          transition={{ staggerChildren: 0.2 }} 
         >
           <motion.span variants={fadeUp} className="hero-badge">
             #1 Mental Health Platform
@@ -237,22 +261,39 @@ export default function HeroSection() {
           </svg>
         </motion.div>
 
-        {/* SECTION DIVIDER */}
+        {/* ENHANCED SECTION DIVIDER WITH SCROLL ANIMATION */}
         <div className="section-divider">
-          <svg viewBox="0 0 1440 80" preserveAspectRatio="none">
+          <motion.svg 
+            viewBox="0 0 1440 120" 
+            preserveAspectRatio="none"
+            style={{ x: dividerX }}
+          >
+            {/* More complex wavy pattern with multiple curves */}
             <motion.path
-              d="M0 40 C120 20, 240 60, 360 40 C480 20, 600 60, 720 40 C840 20, 960 60, 1080 40 C1200 20, 1320 60, 1440 40"
+              d="M0 60 
+                 Q 60 30, 120 60 
+                 T 240 60 
+                 Q 300 90, 360 60 
+                 T 480 60 
+                 Q 540 30, 600 60 
+                 T 720 60 
+                 Q 780 90, 840 60 
+                 T 960 60 
+                 Q 1020 30, 1080 60 
+                 T 1200 60 
+                 Q 1260 90, 1320 60 
+                 T 1440 60"
               fill="none"
-              stroke="#000"
-              strokeWidth="2.6"
+              stroke="#000000"
+              strokeWidth="5.6"
               strokeLinecap="round"
               variants={drawPath}
               initial="initial"
               whileInView="animate"
               viewport={{ once: true }}
-              transition={{ duration: 2 }}
+              transition={{ duration: 2.5, ease: "easeInOut" }}
             />
-          </svg>
+          </motion.svg>
         </div>
       </div>
     </section>

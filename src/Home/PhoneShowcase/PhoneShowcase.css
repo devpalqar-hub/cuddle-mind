@@ -9,7 +9,6 @@ body {
   padding: 145px 199px;
   margin-top: -235px;
 }
-
 .phone-wrapper {
   position: relative;
   width: 420px;
@@ -122,8 +121,9 @@ top: -2px
   left: -10%;
   transform: translateX(-50%) rotate(45deg);
   z-index: 1
-  
-
+}
+.image {
+  z-index: 2;
 }
 /* right section */
 /* ================= CTA ================= */
@@ -217,6 +217,56 @@ top: -2px
 .cta-mobile-view {
   display: none;
 }
+/* ============================= */
+/* 1024px – Tablet Landscape */
+/* ============================= */
+
+@media (max-width: 1024px) {
+
+  .phone-section {
+    padding: 120px 80px;
+    margin-top: -120px;
+  }
+
+  .phone-wrapper {
+    width: 360px;
+    height: 580px;
+  }
+
+  .phone-sketch-frame {
+    width: 330px;
+    height: 610px;
+    left: 15px;
+    top: -25px;
+  }
+
+  .phone-label.support {
+    right: -60px;
+  }
+
+  .phone-label.users {
+    left: -60px;
+  }
+
+  .badge-wrapper.top {
+    left: -30px;
+  }
+
+  .badge-wrapper.bottom {
+    right: -50px;
+  }
+
+  .cta-wrapper {
+    margin-left: 120px;
+    padding: 120px 20px;
+  }
+
+  .cta-box h2 {
+    font-size: 30px;
+  }
+
+}
+
 @media (max-width: 768px) {
 
   .phone-section {
@@ -379,4 +429,175 @@ top: -2px
     padding: 8px 14px;
     background-color: rgba(111, 207, 239, 1);
   }
+}
+/* ============================= */
+/* 720px – Small Tablet */
+/* ============================= */
+
+@media (max-width: 720px) {
+
+  .phone-section {
+    flex-direction: column;
+    align-items: center;
+    padding: 100px 20px;
+    margin-top: -60px;
+  }
+
+  .phone-wrapper {
+    width: 320px;
+    height: 540px;
+  }
+
+  .phone-sketch-frame {
+    width: 300px;
+    height: 560px;
+    left: 5px;
+  }
+
+  .cta-wrapper {
+    margin-left: 0;
+    padding: 60px 0 0;
+    align-items: center;
+    text-align: center;
+  }
+
+  .cta-box {
+    transform: rotate(0deg);
+  }
+
+  .cta-buttons {
+    flex-direction: column;
+  }
+
+}
+/* ============================= */
+/* 460px – Small Phones */
+/* ============================= */
+
+@media (max-width: 460px) {
+
+  .phone-wrapper {
+    width: 260px;
+    height: 480px;
+  }
+
+  .phone-sketch-frame {
+    width: 250px;
+    height: 500px;
+    left: 0;
+    top: -15px;
+  }
+
+  .phone-label.support {
+    right: -40px;
+    font-size: 11px;
+  }
+
+  .phone-label.users {
+    left: -40px;
+    font-size: 11px;
+  }
+
+  .badge-pill {
+    font-size: 11px;
+    padding: 6px 10px;
+  }
+
+  .cta-mobile-view .cta-box {
+    padding: 32px 20px;
+  }
+
+  .cta-mobile-view .cta-box h2 {
+    font-size: 26px;
+  }
+
+  .cta-mobile-view .store-btn {
+    width: 100%;
+  }
+}
+/* ============================= */
+/* 320px – Mobile S */
+/* ============================= */
+
+@media (max-width: 320px) {
+
+  .phone-section {
+    padding: 70px 12px;
+    margin-top: -20px;
+  }
+
+  .phone-wrapper {
+    width: 240px;
+    height: 440px;
+  }
+
+  .phone-sketch-frame {
+    width: 230px;
+    height: 460px;
+    left: 0;
+    top: -10px;
+    border-width: 2px;
+  }
+
+  .phone-mockup {
+    transform: rotate(-3deg);
+  }
+
+  /* ===== Badges ===== */
+
+  .badge-pill {
+    font-size: 10px;
+    padding: 6px 10px;
+    border-width: 2px;
+  }
+
+  .badge-wrapper.top {
+    top: -30px;
+    left: -10px;
+  }
+
+  .badge-wrapper.bottom {
+    bottom: -25px;
+    right: -15px;
+  }
+
+  .phone-label.support {
+    top: 20px;
+    right: -35px;
+    font-size: 10px;
+    padding: 6px 10px;
+  }
+
+  .phone-label.users {
+    bottom: 110px;
+    left: -35px;
+    font-size: 10px;
+    padding: 6px 10px;
+  }
+
+  /* ===== CTA Mobile ===== */
+
+  .cta-wrapper {
+    padding: 50px 10px 0;
+  }
+
+  .cta-mobile-view .cta-box {
+    max-width: 100%;
+    padding: 28px 18px;
+  }
+
+  .cta-mobile-view .cta-box h2 {
+    font-size: 22px;
+  }
+
+  .cta-mobile-view .cta-box p {
+    font-size: 14px;
+  }
+
+  .cta-mobile-view .store-btn {
+    width: 100%;
+    height: 48px;
+    font-size: 13px;
+  }
+
 }
