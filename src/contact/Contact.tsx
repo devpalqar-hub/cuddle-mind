@@ -97,6 +97,7 @@ export default function Contact() {
         consent: false,
       });
     } catch (error: any) {
+      console.log(formData,"hi")
       setErrors({
         submit: error.message || "Something went wrong. Please try again.",
       });
