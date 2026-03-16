@@ -190,6 +190,7 @@ top: -2px
 
   cursor: pointer;
   white-space: nowrap;
+  text-decoration: none;
 }
 
 
@@ -212,6 +213,7 @@ top: -2px
 
 .cta-desktop-view {
   display: block; 
+  text-decoration: none;
 }
 
 .cta-mobile-view {

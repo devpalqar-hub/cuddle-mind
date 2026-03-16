@@ -64,7 +64,10 @@ export default function Navbar() {
 
                             {/* RIGHT: BUTTON */}
                             <div className="navbar-right">
-                            <button className="download-btn">Download App</button>
+                            <NavHashLink 
+                                smooth
+                                to="/#download-now"
+                                className="download-btn">Download App</NavHashLink>
 
                             {/* Mobile Toggle */}
                             <button
