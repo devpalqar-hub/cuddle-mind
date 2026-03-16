@@ -141,7 +141,7 @@
   letter-spacing: 0.3px;
   cursor: pointer;
   transition: all .25s ease;
-
+    text-decoration: none;
   box-shadow: 0 6px 18px rgba(22,121,224,0.25);
 }
 
